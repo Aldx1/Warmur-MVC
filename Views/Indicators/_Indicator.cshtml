@@ -1,0 +1,20 @@
+﻿@model Indicator
+
+<tr id="tr-@Model.Name-@Model.Id" class="indicator-tr">
+    <td>@Model.Name</td>
+    <td>
+        <div style="float: left;">
+            <input type="number" class="form-control mr-2" id="value-textbox-@Model.Id" name="value" value="@Model.Value.Value" style="border: none;" onchange="updateIndicatorValue(@Model.Id)" />
+        </div>
+    </td>
+    <td><span id="value-source-@Model.Id">@Model.Value.Source</span></td>
+    <td></td>
+    <td>
+        <div style="float: right;">
+            <button class="btn btn-primary" onclick="putIndicator(@Model.LeadId, @Model.Id)">Update</button>
+            <button class="btn btn-warning" onclick="resetIndicatorValue(@Model.Value.Value, '@Model.Value.Source', @Model.Id)">Reset</button>
+            <button class="btn btn-danger" onclick="deleteIndicator(@Model.LeadId, @Model.Id)">Delete</button>
+        </div>
+    </td>
+</tr>
+

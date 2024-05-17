@@ -1,0 +1,43 @@
+@model (PaginatedResponse<Indicator>, int)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Source</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @* Display indicators *@
+        @foreach (var indicator in Model.Item1.Items)
+        {
+            @Html.Partial("_Indicator", indicator)
+        }
+
+        @* New Indicator *@
+        <tr>
+            <td><input type="text" name="name" class="form-control"  placeholder="Name" id="new-indicator-name-@Model.Item2" /></td>
+            <td><input type="number" name="value" class="form-control" placeholder="Value" id="new-indicator-value-@Model.Item2" /></td>
+            <td></td>
+            <td></td>
+            <td><button style="float: right;" class="btn btn-success" onclick="postIndicator(@Model.Item2)">Save</button></td>
+        </tr>
+    </tbody>
+</table>
+
+@* Page controls *@
+<div style="width: 20%;">
+    @if (Model.Item1.Page > 1)
+    {
+        <a class="indicator-page-toggle" style="float: left;" onclick="getIndicators(@Model.Item2, @Model.Item1.Page - 1)">Previous</a>
+    }
+
+    @if (Model.Item1.Page < Model.Item1.TotalPages)
+    {
+        <a class="indicator-page-toggle" style="float: right;" onclick="getIndicators(@Model.Item2, @Model.Item1.Page + 1)">Next</a>
+    }
+</div>

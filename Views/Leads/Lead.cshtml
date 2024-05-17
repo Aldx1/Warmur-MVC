@@ -1,0 +1,42 @@
+﻿@model Lead
+
+<h2>Lead Details</h2>
+<div>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Company:</strong> @Model.Company</p>
+    <p><strong>Job Title:</strong> @Model.JobTitle</p>
+    <p><strong>Location:</strong> @Model.Location</p>
+</div>
+
+<div>
+    <ul class="nav nav-tabs" id="leadTabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="indicators-tab" data-toggle="tab" href="#indicators" role="tab"
+                aria-controls="indicators" aria-selected="true">Indicators</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="other-data-tab" data-toggle="tab" href="#other-data" role="tab"
+                aria-controls="other-data" aria-selected="false">Some Other Data</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="leadTabsContent">
+        
+        <div class="tab-pane fade show active" id="indicators" data-url="@Url.Action("Indicators", "Indicators")" role="tabpanel" aria-labelledby="indicators-tab">
+            <!-- Inserted html for indicators -->
+        </div>
+        <div class="tab-pane fade" id="other-data" role="tabpanel" aria-labelledby="other-data-tab">
+            <p>Some other data content goes here.</p>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+<script>
+    // Get indicators on initial load
+    $(document).ready(function () {
+        var leadId = @Model.Id;
+        getIndicators(leadId, 1);
+    });
+</script>
+}
