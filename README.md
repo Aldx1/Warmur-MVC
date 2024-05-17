@@ -13,10 +13,15 @@ In the lead view you can add, update, or delete indicators.
 ## Future work
 
 If given more time I would work on the following:
+
 	1. Error handling
+ 
 	2. Logging
+ 
 	3. Dedicated test project
+ 
 	4. Authorization/Authentication
+ 
 	5. UI updates 
 		1. Display/Hide elements when updating indicators
 		2. Display loading icons/images
