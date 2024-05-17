@@ -1,6 +1,7 @@
 # Warmur-Interview-MVC
 
-MVC app built on .NET 8
+MVC app built on .NET 8.
+
 Bootstrap 4.5.3 and Jquery 3.6.0 are the other frameworks/libraries used in this project.
 
 To run the project, open the solution in visual studio then build and start.
